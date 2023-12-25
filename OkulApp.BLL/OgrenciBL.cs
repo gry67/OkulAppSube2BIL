@@ -20,7 +20,7 @@ namespace OkulApp.BLL
                 new SqlParameter("@Numara",ogr.numara),
             };
 
-            return hlp.ExecuteNonQuery("Insert into tblOgrenciler values(@Ad, @Soyad, @Numara)", p) > 0;
+            return hlp.ExecuteNonQuery("Insert into tbl_Ogrenciler values(@Ad, @Soyad, @Numara)", p) > 0;
         }
     }
 }
