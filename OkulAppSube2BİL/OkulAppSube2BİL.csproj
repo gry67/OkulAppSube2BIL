@@ -68,6 +68,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmOgrBul.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOgrBul.Designer.cs">
+      <DependentUpon>frmOgrBul.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmOgretmenKayit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmOgrBul.resx">
+      <DependentUpon>frmOgrBul.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmOgretmenKayit.resx">
       <DependentUpon>frmOgretmenKayit.cs</DependentUpon>
     </EmbeddedResource>
