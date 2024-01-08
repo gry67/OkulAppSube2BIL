@@ -36,6 +36,7 @@
             this.lbl_numara = new System.Windows.Forms.Label();
             this.lbl_soyad = new System.Windows.Forms.Label();
             this.grp_Ogrenci = new System.Windows.Forms.GroupBox();
+            this.btnTemizle = new System.Windows.Forms.Button();
             this.btnBul = new System.Windows.Forms.Button();
             this.btnSil = new System.Windows.Forms.Button();
             this.btnGuncelle = new System.Windows.Forms.Button();
@@ -105,6 +106,7 @@
             // 
             // grp_Ogrenci
             // 
+            this.grp_Ogrenci.Controls.Add(this.btnTemizle);
             this.grp_Ogrenci.Controls.Add(this.txt_Ad);
             this.grp_Ogrenci.Controls.Add(this.lbl_numara);
             this.grp_Ogrenci.Controls.Add(this.lbl_soyad);
@@ -118,6 +120,16 @@
             this.grp_Ogrenci.TabStop = false;
             this.grp_Ogrenci.Text = "Öğrenci Bilgileri";
             // 
+            // btnTemizle
+            // 
+            this.btnTemizle.Location = new System.Drawing.Point(149, 36);
+            this.btnTemizle.Name = "btnTemizle";
+            this.btnTemizle.Size = new System.Drawing.Size(75, 23);
+            this.btnTemizle.TabIndex = 7;
+            this.btnTemizle.Text = "Temizle";
+            this.btnTemizle.UseVisualStyleBackColor = true;
+            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
+            // 
             // btnBul
             // 
             this.btnBul.Location = new System.Drawing.Point(299, 99);
@@ -130,6 +142,7 @@
             // 
             // btnSil
             // 
+            this.btnSil.Enabled = false;
             this.btnSil.Location = new System.Drawing.Point(299, 142);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(96, 34);
@@ -140,6 +153,7 @@
             // 
             // btnGuncelle
             // 
+            this.btnGuncelle.Enabled = false;
             this.btnGuncelle.Location = new System.Drawing.Point(299, 184);
             this.btnGuncelle.Name = "btnGuncelle";
             this.btnGuncelle.Size = new System.Drawing.Size(96, 35);
@@ -176,8 +190,9 @@
         public System.Windows.Forms.TextBox txt_Numara;
         public System.Windows.Forms.TextBox txt_Ad;
         private System.Windows.Forms.Button btnBul;
-        private System.Windows.Forms.Button btnSil;
-        private System.Windows.Forms.Button btnGuncelle;
+        private System.Windows.Forms.Button btnTemizle;
+        public System.Windows.Forms.Button btnSil;
+        public System.Windows.Forms.Button btnGuncelle;
     }
 }
 

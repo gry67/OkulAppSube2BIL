@@ -22,19 +22,29 @@ namespace OkulAppSube2BİL
 
         private void btnBul_Click(object sender, EventArgs e)
         {
-            OgrenciBL obl = new OgrenciBL();
-            var ogr = obl.OgrenciBul(txtNumara.Text.Trim());
+            try
+            {
+                OgrenciBL obl = new OgrenciBL();
+                var ogr = obl.OgrenciBul(txtNumara.Text.Trim());
 
-            if (ogr != null)
-            {
-                frm.txt_Ad.Text = ogr.Ad;
-                frm.txt_Soyad.Text = ogr.Soyad;
-                frm.txt_Numara.Text = ogr.numara;
-                frm.OgrenciId = ogr.Ogrenciid;
+                if (ogr != null)
+                {
+                    frm.txt_Ad.Text = ogr.Ad;
+                    frm.txt_Soyad.Text = ogr.Soyad;
+                    frm.txt_Numara.Text = ogr.numara;
+                    frm.OgrenciId = ogr.Ogrenciid;
+                    frm.btnSil.Enabled= true;
+                    frm.btnGuncelle.Enabled= true;
+                }
+                else
+                {
+                    MessageBox.Show("Öğrenci bulunamadı");
+                }
+                this.Close();
             }
-            else
+            catch (Exception x)
             {
-                MessageBox.Show("Öğrenci bulunamadı");
+                MessageBox.Show($"Hata Alındı {x}");
             }
         }
     }

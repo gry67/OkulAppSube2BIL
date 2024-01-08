@@ -65,24 +65,60 @@ namespace OkulAppSube2BİL
 
         private void btnSil_Click(object sender, EventArgs e)
         {
-            var obl = new OgrenciBL();
-            MessageBox.Show(obl.OgrenciSil(OgrenciId)? "Silme Başarılı":"Silme Başarısız");
-            
+            try
+            {
+                var obl = new OgrenciBL();
+                bool sonuc = obl.OgrenciSil(OgrenciId);
+                if (sonuc)
+                {
+                    MessageBox.Show("Öğrenci silme başarılı");
+                    btnSil.Enabled= false;
+                    btnGuncelle.Enabled= false;
+                    btnTemizle_Click(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("Silme Başarısız");
+                }
+                
+
+
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show($"Hata Alındı {x}");
+            }
         }
 
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
-            var obl = new OgrenciBL();
-            Ogrenci ogr = new Ogrenci()
+            try
             {
-            Ad = txt_Ad.Text.Trim(),
-            Soyad = txt_Soyad.Text.Trim(),
-            numara = txt_Numara.Text.Trim(),
-            Ogrenciid = OgrenciId
-            };
+                var obl = new OgrenciBL();
+                Ogrenci ogr = new Ogrenci()
+                {
+                    Ad = txt_Ad.Text.Trim(),
+                    Soyad = txt_Soyad.Text.Trim(),
+                    numara = txt_Numara.Text.Trim(),
+                    Ogrenciid = OgrenciId
+                };
 
-            MessageBox.Show(obl.OgrenciGuncelle(ogr)? "Güncelleme Başarılı" : "Güncelleme Başarısız!");
+                MessageBox.Show(obl.OgrenciGuncelle(ogr) ? "Güncelleme Başarılı" : "Güncelleme Başarısız!");
+            }
+            catch (Exception x)
+            {
+                throw;
+            }
             
+        }
+
+        private void btnTemizle_Click(object sender, EventArgs e)
+        {
+            txt_Ad.Text = String.Empty;
+            txt_Soyad.Text = String.Empty;
+            txt_Numara.Text = String.Empty;
+            btnSil.Enabled = false;
+            btnGuncelle.Enabled = false;
         }
     }
 }

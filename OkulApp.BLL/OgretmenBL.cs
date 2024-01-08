@@ -11,7 +11,7 @@ namespace OkulApp.BLL
     {
         public bool OgretmenKaydet(Ogretmen ogr)
         {
-            var hlp = new Helper();
+            var hlp = Helper.getInstance();
 
 
             var p = new SqlParameter[]
